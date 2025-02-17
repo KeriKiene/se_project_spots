@@ -1,0 +1,61 @@
+.profile {
+  display: flex;
+  padding: 34px 0 20px;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+}
+
+.profile__avatar {
+  margin-right: 20px;
+}
+
+.profile__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__name {
+  margin: 0 0 12px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 32px;
+  color: rgba(33, 33, 33, 1);
+}
+
+.profile__description {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: rgba(33, 33, 33, 0.7);
+}
+
+.profile__edit-btn {
+  margin-top: auto;
+  width: 160px;
+  opacity: 70%;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.profile__edit-btn ::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  gap: 8px;
+  background-image: url(../images/Pencil.svg);
+}
+
+.profile__add-btn {
+  margin-left: auto;
+  width: 149px;
+  height: 52px;
+  gap: 8px;
+  background-color: rgba(33, 33, 33, 1);
+  color: rgba(252, 245, 229, 1);
+  border-radius: 8px;
+  line-height: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
