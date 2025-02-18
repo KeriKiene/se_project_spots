@@ -2,9 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 16px;
-  width: 184px;
-  margin: 60px auto;
   padding: 60px 0;
   font-size: 16px;
   line-height: 16px;
@@ -14,8 +11,4 @@
 }
 
 @media screen and (max-width: 627px) {
-  .footer {
-    width: 104px;
-    height: 16px;
-  }
 }

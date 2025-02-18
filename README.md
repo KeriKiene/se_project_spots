@@ -15,6 +15,7 @@ The webpage introduces Bessie Coleman and her achievements and allows you to lea
 This webpage is Deployed to GitHub Pages
 
 -Deployment link: [https://github.com/KeriKiene/se_project_spots.git]
+[https://kerikiene.github.io/se_project_spots/]
 
 ### Overview
 
