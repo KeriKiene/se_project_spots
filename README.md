@@ -2,6 +2,8 @@
 
 ## Description
 
+The webpage introduces Bessie Coleman and her achievements and allows you to learn about her and other influential people.
+
 ## Tech Stack
 
 -HTML
@@ -12,7 +14,7 @@
 
 This webpage is Deployed to GitHub Pages
 
--Deployment link:
+-Deployment link: [https://github.com/KeriKiene/se_project_spots.git]
 
 ### Overview
 
