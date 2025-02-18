@@ -46,6 +46,7 @@
 }
 
 .profile__edit-btn {
+  display: flex;
   margin-top: auto;
   width: 160px;
   opacity: 70%;
@@ -66,6 +67,7 @@
 }
 
 .profile__add-btn {
+  align-self: end;
   margin-left: auto;
   width: 149px;
   height: 52px;

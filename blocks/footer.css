@@ -1,7 +1,11 @@
 .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 16px;
   width: 184px;
-  margin: 60px 1280px;
+  margin: 60px auto;
+  padding: 60px 0;
   font-size: 16px;
   line-height: 16px;
   font-weight: 400;
