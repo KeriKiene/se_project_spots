@@ -23,7 +23,6 @@
   overflow: hidden;
   -webkit-line-clamp: 3;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
   font-size: 32px;
@@ -38,7 +37,6 @@
   overflow: hidden;
   -webkit-line-clamp: 3;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
   font-size: 16px;
@@ -51,19 +49,13 @@
   margin-top: auto;
   width: 160px;
   opacity: 70%;
+  gap: 8px;
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
   color: rgba(33, 33, 33, 1);
   background-color: transparent;
   border: none;
-}
-
-.profile__edit-btn::before {
-  content: "";
-  width: 16px;
-  height: 16px;
-  gap: 8px;
 }
 
 .profile__add-btn {
