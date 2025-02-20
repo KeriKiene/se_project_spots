@@ -37,6 +37,6 @@ The way you'll do this at work is by exporting images directly from Figma — we
 
 ## Video link
 
-Here is the link to my video presentation: https://drive.google.com/file/d/10uyhER7CmTYULjTfdOV-VWcaaOeevLP2/view?usp=drive_link
+Here is the link to my video presentation: https://drive.google.com/file/d/10uyhER7CmTYULjTfdOV-VWcaaOeevLP2/view?usp=sharing
 
 Good luck and have fun!
