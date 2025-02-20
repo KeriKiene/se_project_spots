@@ -50,7 +50,7 @@
   margin-top: auto;
   width: 160px;
   opacity: 70%;
-  gap: 8px;
+  gap: 10px;
   font-weight: 500;
   font-size: 16px;
   line-height: 16px;
@@ -66,7 +66,7 @@
   margin-left: auto;
   width: 157px;
   height: 52px;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
   background-color: rgba(33, 33, 33, 1);
   color: rgba(252, 245, 229, 1);
@@ -75,6 +75,14 @@
   font-size: 16px;
   font-weight: 500;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+.profile__add-btn:hover {
+  opacity: 0.7;
+}
+
+.profile__edit-btn:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 627px) {
@@ -110,8 +118,9 @@
   }
 
   .profile__edit-btn {
+    justify-content: center;
     align-self: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .profile__add-btn {
