@@ -2,7 +2,8 @@
 
 ## Description
 
-The webpage introduces Bessie Coleman and her achievements and allows you to learn about her and other influential people.
+The webpage introduces Bessie Coleman and her achievements and allows you to learn about her and
+other influential people.
 
 ## Tech Stack
 
@@ -25,7 +26,8 @@ This webpage is Deployed to GitHub Pages
 
 **Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+This project is made so all the elements are displayed correctly on popular screen sizes.
+We recommend investing more time in completing this project, since it's more difficult than previous ones.
 
 **Figma**
 
@@ -33,10 +35,12 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
+The way you'll do this at work is by exporting images directly from Figma —
+we recommend doing that to practice more. Don't forget to optimize them [](https://tinypng.com/),
+so your project loads faster.
 
 ## Video link
 
-Here is the link to my video presentation: https://drive.google.com/file/d/10uyhER7CmTYULjTfdOV-VWcaaOeevLP2/view?usp=sharing
+Here is the link to my video presentation: https://drive.google.com/file/d/1vzoS5bQG7CmAV7BwXgcB57wuiozyk1iC/view?usp=sharing
 
 Good luck and have fun!
