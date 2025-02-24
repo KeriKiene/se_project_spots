@@ -78,7 +78,7 @@
 }
 
 .profile__add-btn:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .profile__edit-btn:hover {
