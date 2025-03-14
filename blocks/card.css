@@ -35,10 +35,18 @@
   background-color: transparent;
   opacity: 40%;
   color: rgba(33, 33, 33, 1);
+  transition: 0.3s ease;
 }
 
 .card__like-btn:hover {
   opacity: 1;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
 }
 
 @media screen and (max-width: 627px) {
