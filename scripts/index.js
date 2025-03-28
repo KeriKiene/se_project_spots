@@ -60,6 +60,15 @@ function getCardElement(data) {
   return cardElement;
 }
 
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+});
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
