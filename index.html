@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Keri Kiene" />
     <meta name="keywords" content="keyword" />
-    <meta name="decription" content="Spots" />
+    <meta name="description" content="Spots" />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Spots</title>
@@ -42,7 +42,12 @@
                   <h2 class="card__title"></h2>
                   <button
                     aria-label="Like card"
-                    class="card__like-btn"
+                    class="card__like-btn card__like-btn_liked"
+                    type="button"
+                  ></button>
+                  <button
+                    aria-label="Delete card"
+                    class="card__delete-btn"
                     type="button"
                   ></button>
                 </div>
@@ -82,6 +87,49 @@
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
+      </div>
+
+      <div class="modal" id="add-card-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">New Post</h2>
+          <form class="modal__form" id="add-card-form">
+            <label for="add-card-link-input" class="modal__label">
+              Image link
+              <input
+                required
+                id="add-card-link-input"
+                type="url"
+                name="link"
+                class="modal__input"
+                placeholder="Paste a link to the picture"
+              />
+            </label>
+            <label for="add-card-name-input" class="modal__label">
+              Caption
+              <input
+                required
+                id="add-card-name-input"
+                type="text"
+                name="name"
+                class="modal__input"
+                placeholder="Type your caption"
+              />
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="preview-modal">
+      <div class="modal__container modal__container_type_preview">
+        <button
+          type="button"
+          class="modal__close-btn modal__close-btn_type_preview"
+        ></button>
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__caption"></p>
       </div>
     </div>
     <script defer src="./scripts/cards.js"></script>
