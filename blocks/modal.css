@@ -229,6 +229,7 @@
   }
 
   .modal__image {
+    max-width: 90vw;
     max-height: 75vh;
     border-radius: 8px;
   }
