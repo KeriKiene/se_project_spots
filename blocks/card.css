@@ -60,10 +60,11 @@
 }
 
 .card__delete-btn {
-  top: 15px;
-  right: 15px;
+  position: absolute;
   width: 32px;
   height: 32px;
+  top: 10px;
+  left: 371px;
   padding: 10px;
   border: 1px;
   border-radius: 8px;
@@ -95,5 +96,12 @@
     max-width: 235px;
     font-size: 16px;
     line-height: 16px;
+  }
+
+  .card__delete-btn {
+    width: 32px;
+    height: 32px;
+    top: 10px;
+    left: 246px;
   }
 }
