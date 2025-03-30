@@ -21,11 +21,11 @@
 }
 
 .modal__container {
-  display: flex;
   justify-content: left;
   align-items: center;
   background: #fff;
   padding: 22px 25px;
+  height: 415px;
   max-width: 730px;
   width: 100%;
   box-sizing: border-box;
@@ -94,6 +94,10 @@
 }
 
 .modal__title {
+  width: 149px;
+  height: 32px;
+  top: 237px;
+  left: 405px;
   margin: 0 0 32px;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
@@ -112,6 +116,10 @@
   font-size: 16px;
   line-height: 17.6px;
   color: rgba(33, 33, 33, 0.7);
+}
+
+.modal__form {
+  width: 100%;
 }
 
 .modal__input {
