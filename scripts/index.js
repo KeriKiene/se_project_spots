@@ -68,13 +68,8 @@ function getCardElement(data) {
   return cardElement;
 }
 
-/* document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    if (openedModal) {
-      closeModal(openedModal);
-    }
-  }
+/*previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
 });*/
 
 function handleEscape(evt) {
@@ -137,7 +132,6 @@ cardModalCloseBtn.addEventListener("click", () => {
 
 profileAddButton.addEventListener("click", () => {
   openModal(cardModal);
-  resetValidation(cardForm, [cardNameInput, cardLinkInput], settings);
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
