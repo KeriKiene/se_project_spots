@@ -25,9 +25,16 @@ const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
-previewModalCloseBtn.addEventListener("click", () => {
-  closeModal(previewModal);
+const closeButtons = document.querySelectorAll(".modal__close");
+
+closeButtons.forEach((button) => {
+  const popup = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(popup));
 });
+
+/*previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
+});*/
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -61,22 +68,36 @@ function getCardElement(data) {
   return cardElement;
 }
 
-document.addEventListener("keydown", (evt) => {
+/* document.addEventListener("keydown", (evt) => {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     if (openedModal) {
       closeModal(openedModal);
     }
   }
-});
+});*/
+
+function handleEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".modal_opened");
+  }
+}
 
 function openModal(modal) {
+  document.addEventListener("keydown", handleEscape);
+}
+
+function closeModal(modal) {
+  document.removeEventListener("keydown", handleEscape);
+}
+
+/*function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-}
+}*/
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
