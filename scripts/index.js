@@ -75,24 +75,19 @@ function getCardElement(data) {
 function handleEscape(evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".modal_opened");
+    closeModal(openedPopup);
   }
 }
 
 function openModal(modal) {
+  modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscape);
 }
 
 function closeModal(modal) {
+  modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscape);
 }
-
-/*function openModal(modal) {
-  modal.classList.add("modal_opened");
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-}*/
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
