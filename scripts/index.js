@@ -25,7 +25,7 @@ const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
-const closeButtons = document.querySelectorAll(".modal__close");
+const closeButtons = document.querySelectorAll(".modal__close-btn");
 
 closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
@@ -35,6 +35,24 @@ closeButtons.forEach((button) => {
 /*previewModalCloseBtn.addEventListener("click", () => {
   closeModal(previewModal);
 });*/
+
+editModal.addEventListener("click", (evt) => {
+  if (evt.target === editModal) {
+    closeModal(editModal);
+  }
+});
+
+cardModal.addEventListener("click", (evt) => {
+  if (evt.target === cardModal) {
+    closeModal(cardModal);
+  }
+});
+
+previewModal.addEventListener("click", (evt) => {
+  if (evt.target === previewModal) {
+    closeModal(previewModal);
+  }
+});
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -67,10 +85,6 @@ function getCardElement(data) {
 
   return cardElement;
 }
-
-/*previewModalCloseBtn.addEventListener("click", () => {
-  closeModal(previewModal);
-});*/
 
 function handleEscape(evt) {
   if (evt.key === "Escape") {
@@ -115,14 +129,6 @@ profileEditButton.addEventListener("click", () => {
     settings
   );
   openModal(editModal);
-});
-
-editModalCloseButton.addEventListener("click", () => {
-  closeModal(editModal);
-});
-
-cardModalCloseBtn.addEventListener("click", () => {
-  closeModal(cardModal);
 });
 
 profileAddButton.addEventListener("click", () => {
