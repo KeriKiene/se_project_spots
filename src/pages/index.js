@@ -1,3 +1,12 @@
+import { initialCards } from "../scripts/cards.js";
+import "./index.css";
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+  disabledButton,
+} from "../scripts/validation.js";
+
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileAddButton = document.querySelector(".profile__add-btn");
 const profileName = document.querySelector(".profile__name");
@@ -142,3 +151,5 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
+
+enableValidation(settings);
