@@ -6,6 +6,37 @@ import {
   resetValidation,
   disabledButton,
 } from "../scripts/validation.js";
+import Api from "../utils/Api.js";
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "323fccdf-3cbc-475e-8d4f-bbab4147d0ed",
+    "Content-Type": "application/json",
+  },
+});
+
+const avatarImage = document.querySelector(".profile__avatar");
+const userNameElement = document.querySelector(".profile__name");
+const userDescriptionElement = document.querySelector(".profile__description");
+
+api
+  .getAppInfo()
+  .then(([user, cards]) => {
+    console.log(cards);
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      cardsList.append(cardElement);
+    });
+
+    avatarImage.src = user.avatar;
+    userNameElement.textContent = user.name;
+    userDescriptionElement.textContent = user.about;
+  })
+
+  .catch((err) => {
+    console.error(err);
+  });
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileAddButton = document.querySelector(".profile__add-btn");
@@ -114,9 +145,17 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
+  api
+    .editUserInfo({
+      name: editModalNameInput.value,
+      about: editModalDescriptionInput.value,
+    })
+    .then((data) => {
+      profileName.textContent = data.name;
+      profileDescription.textContent = data.about;
+      closeModal(editModal);
+    })
+    .catch(console.error);
 }
 
 function handleAddCardSubmit(evt) {
@@ -146,10 +185,5 @@ profileAddButton.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
-
-initialCards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
-});
 
 enableValidation(settings);
