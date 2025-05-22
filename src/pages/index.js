@@ -17,8 +17,8 @@ const api = new Api({
 });
 
 const avatarImage = document.querySelector(".profile__avatar");
-const userNameElement = document.querySelector(".profile__name");
-const userDescriptionElement = document.querySelector(".profile__description");
+const profileName = document.querySelector(".profile__name");
+const profileDescription = document.querySelector(".profile__description");
 
 api
   .getAppInfo()
@@ -30,8 +30,8 @@ api
     });
 
     avatarImage.src = user.avatar;
-    userNameElement.textContent = user.name;
-    userDescriptionElement.textContent = user.about;
+    profileName.textContent = user.name;
+    profileDescription.textContent = user.about;
   })
 
   .catch((err) => {
@@ -40,8 +40,6 @@ api
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileAddButton = document.querySelector(".profile__add-btn");
-const profileName = document.querySelector(".profile__name");
-const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
