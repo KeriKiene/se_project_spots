@@ -123,7 +123,7 @@ function getCardElement(data) {
   const likeButton = cardElement.querySelector(".card__like-btn");
   const likeCount = cardElement.querySelector(".card__like-count");
   // Check if card is liked by current user
-  let isLiked = data.likes.some((like) => like === userId);
+  let isLiked = data.isLiked;
 
   // Set initial like button state
   if (isLiked) {
@@ -131,7 +131,7 @@ function getCardElement(data) {
   }
 
   // Set initial like count
-  likeCount.textContent = data.likes.length;
+  // likeCount.textContent = data.likes.length;
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
