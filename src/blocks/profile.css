@@ -16,14 +16,14 @@
   height: 16px;
   margin-right: 20px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   gap: 8px;
   border-radius: 90px;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
 
   visibility: hidden;
-
-  /* TODO - finish  avatar buttton styles*/
 }
 
 .profile__avatar-container:hover .profile__avatar-btn {
@@ -131,8 +131,8 @@
 
   .profile__add-btn {
     visibility: visible;
-    width: 23.340126037597656px;
-    height: 23.340126037597656px;
+    width: 23.34px;
+    height: 23.34px;
     top: 52px;
     left: 52px;
     gap: 8px;
@@ -140,12 +140,30 @@
     padding: 4px;
   }
 
-  .profile__avatar-btn::after {
-    visibility: "";
+  .profile__avatar-btn {
+    visibility: visible;
+    width: 24px;
+    height: 24px;
+    top: 52px;
+    left: 52px;
+    gap: 8px;
+    padding: 4px;
+    border-radius: 6px;
+    background-color: rgba(33, 33, 33, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* TODO - set content of ::after element to "" */
-  /* TODO - finish mobile avatar buttton styles*/
+  .profile__avatar-btn::after {
+    content: "";
+  }
+
+  .profile__pencil-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+  }
 
   .profile__avatar {
     margin-bottom: 12px;
