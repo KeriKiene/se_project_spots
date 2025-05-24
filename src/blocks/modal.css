@@ -199,6 +199,7 @@
   color: #e5e5e5;
   opacity: 0.5;
   cursor: not-allowed;
+  transition: all 0.3s ease;
 }
 
 .modal__submit-btn-delete {
@@ -236,6 +237,23 @@
   line-height: 100%;
   letter-spacing: 0%;
   margin: 20px;
+}
+
+.error-message {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff3333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.error-message_visible {
+  display: block;
 }
 
 @media screen and (max-width: 900px) {

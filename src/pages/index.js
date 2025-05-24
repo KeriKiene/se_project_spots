@@ -8,6 +8,19 @@ import {
 } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 
+function showErrorMessage(message) {
+  const errorElement = document.querySelector("#error-message");
+  errorElement.textContent = message;
+  errorElement.classList.add("error-message_visible");
+
+  // Hide the error message after 3 seconds
+  setTimeout(() => {
+    errorElement.classList.remove("error-message_visible");
+  }, 3000);
+}
+
+let userId; // Add this line after the imports
+
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -23,6 +36,7 @@ const profileDescription = document.querySelector(".profile__description");
 api
   .getAppInfo()
   .then(([user, cards]) => {
+    userId = user._id; // Changed from 'let userId = user._id'
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
@@ -32,8 +46,9 @@ api
     profileName.textContent = user.name;
     profileDescription.textContent = user.about;
   })
-
-  .catch(console.error);
+  .catch((err) => {
+    showErrorMessage("Something went wrong. Please try again later.");
+  });
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileAddButton = document.querySelector(".profile__add-btn");
@@ -105,14 +120,39 @@ function getCardElement(data) {
 
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
-  const cardLikeBtn = cardElement.querySelector(".card__like-btn");
+  const likeButton = cardElement.querySelector(".card__like-btn");
+  const likeCount = cardElement.querySelector(".card__like-count");
+  // Check if card is liked by current user
+  let isLiked = data.likes.some((like) => like === userId);
+
+  // Set initial like button state
+  if (isLiked) {
+    likeButton.classList.add("card__like-btn_liked");
+  }
+
+  // Set initial like count
+  likeCount.textContent = data.likes.length;
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
-  cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-btn_liked");
+  likeButton.addEventListener("click", () => {
+    api
+      .handleLike(data._id, isLiked)
+      .then((updatedCard) => {
+        if (updatedCard) {
+          isLiked = !isLiked;
+          likeButton.classList.toggle("card__like-btn_liked");
+          likeCount.textContent = updatedCard.likes
+            ? updatedCard.likes.length
+            : 0;
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        showErrorMessage("Unable to update like. Please try again.");
+      });
   });
 
   cardImageEl.addEventListener("click", () => {
@@ -151,6 +191,12 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
+  const submitButton = editFormElement.querySelector(".modal__submit-btn");
+  const originalText = submitButton.textContent;
+
+  submitButton.textContent = "Saving...";
+  submitButton.disabled = true;
+
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -161,12 +207,22 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = data.about;
       closeModal(editModal);
     })
-    .catch(console.error);
+    .catch((err) => {
+      showErrorMessage("Unable to update profile. Please try again.");
+    })
+    .finally(() => {
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
+    });
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  cardSubmitBtn.disabled = true; // Disable the button while submitting
+  const submitButton = cardSubmitBtn;
+  const originalText = submitButton.textContent;
+
+  submitButton.textContent = "Saving...";
+  submitButton.disabled = true;
 
   api
     .addCard({
@@ -180,15 +236,24 @@ function handleAddCardSubmit(evt) {
       disabledButton(cardSubmitBtn, settings);
       closeModal(cardModal);
     })
-    .catch(console.error)
+    .catch((err) => {
+      showErrorMessage("Unable to add card. Please try again.");
+    })
+
     .finally(() => {
-      cardSubmitBtn.disabled = false; // Re-enable the button
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
     });
 }
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
-  avatarSubmitBtn.disabled = true;
+  const submitButton = avatarSubmitBtn;
+  const originalText = submitButton.textContent;
+
+  submitButton.textContent = "Saving...";
+  submitButton.disabled = true;
+
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
@@ -197,10 +262,11 @@ function handleAvatarSubmit(evt) {
       avatarFormElement.reset();
     })
     .catch((err) => {
-      console.error(err);
+      showErrorMessage("Unable to update avatar. Please try again.");
     })
     .finally(() => {
-      avatarSubmitBtn.disabled = false;
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
     });
 }
 
@@ -230,6 +296,17 @@ avatarFormElement.addEventListener("submit", handleAvatarSubmit);
 
 deleteForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
+  const submitButton = deleteForm.querySelector(".modal__submit-btn-delete");
+
+  // Add this check
+  if (!submitButton) {
+    console.error("Submit button not found");
+    return;
+  }
+
+  const originalText = submitButton.textContent;
+  submitButton.textContent = "Deleting...";
+  submitButton.disabled = true;
 
   const cardId = deleteModal.dataset.cardToDelete;
   api
@@ -242,7 +319,11 @@ deleteForm.addEventListener("submit", (evt) => {
       closeModal(deleteModal);
     })
     .catch((err) => {
-      console.error(err);
+      showErrorMessage("Unable to delete card. Please try again.");
+    })
+    .finally(() => {
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
     });
 });
 
