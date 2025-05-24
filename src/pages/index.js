@@ -23,7 +23,6 @@ const profileDescription = document.querySelector(".profile__description");
 api
   .getAppInfo()
   .then(([user, cards]) => {
-    console.log(cards);
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardsList.append(cardElement);
@@ -34,9 +33,7 @@ api
     profileDescription.textContent = user.about;
   })
 
-  .catch((err) => {
-    console.error(err);
-  });
+  .catch(console.error);
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileAddButton = document.querySelector(".profile__add-btn");
@@ -80,10 +77,6 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closeModal(popup));
 });
-
-/*previewModalCloseBtn.addEventListener("click", () => {
-  closeModal(previewModal);
-});*/
 
 editModal.addEventListener("click", (evt) => {
   if (evt.target === editModal) {
@@ -193,16 +186,6 @@ function handleAddCardSubmit(evt) {
     });
 }
 
-// function handleAddCardSubmit(evt) {
-//   evt.preventDefault();
-//   const inputValues = { name: cardNameInput.value, link: cardLinkInput.value };
-//   const cardElement = getCardElement(inputValues);
-//   cardsList.prepend(cardElement);
-//   cardForm.reset();
-//   disabledButton(cardSubmitBtn, settings);
-//   closeModal(cardModal);
-// }
-
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
   avatarSubmitBtn.disabled = true;
@@ -246,8 +229,8 @@ cardForm.addEventListener("submit", handleAddCardSubmit);
 avatarFormElement.addEventListener("submit", handleAvatarSubmit);
 
 deleteForm.addEventListener("submit", (evt) => {
-  console.log("Delete form submitted");
   evt.preventDefault();
+
   const cardId = deleteModal.dataset.cardToDelete;
   api
     .deleteCard(cardId)
@@ -264,7 +247,6 @@ deleteForm.addEventListener("submit", (evt) => {
 });
 
 deleteCancelButton.addEventListener("click", () => {
-  console.log("Cancel button clicked");
   closeModal(deleteModal);
 });
 
