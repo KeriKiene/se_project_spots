@@ -34,7 +34,7 @@
 
 .modal__container-delete {
   width: 630px;
-  height: 172px;
+  max-height: 172px;
   top: 325px;
   left: 405px;
   padding-top: 32px;
@@ -100,6 +100,16 @@
 
 .modal__close-btn:hover {
   opacity: 1;
+}
+
+.modal__close-btn_type_delete {
+  background-image: url(../images/Close-Preview-Icon.svg);
+  width: 40px;
+  height: 40px;
+  top: 184px;
+  right: 86px;
+  opacity: 0.5;
+  background-color: transparent;
 }
 
 .modal__title {
