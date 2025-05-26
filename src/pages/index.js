@@ -111,6 +111,18 @@ previewModal.addEventListener("click", (evt) => {
   }
 });
 
+avatarModal.addEventListener("click", (evt) => {
+  if (evt.target === avatarModal) {
+    closeModal(avatarModal);
+  }
+});
+
+deleteModal.addEventListener("click", (evt) => {
+  if (evt.target === deleteModal) {
+    closeModal(deleteModal);
+  }
+});
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -209,10 +221,10 @@ function handleEditFormSubmit(evt) {
     })
     .catch((err) => {
       showErrorMessage("Unable to update profile. Please try again.");
+      submitButton.disabled = false;
     })
     .finally(() => {
       submitButton.textContent = originalText;
-      submitButton.disabled = false;
     });
 }
 
@@ -238,11 +250,11 @@ function handleAddCardSubmit(evt) {
     })
     .catch((err) => {
       showErrorMessage("Unable to add card. Please try again.");
+      submitButton.disabled = false;
     })
 
     .finally(() => {
       submitButton.textContent = originalText;
-      submitButton.disabled = false;
     });
 }
 
@@ -260,13 +272,14 @@ function handleAvatarSubmit(evt) {
       avatarImage.src = data.avatar;
       closeModal(avatarModal);
       avatarFormElement.reset();
+      disabledButton(avatarSubmitBtn, settings);
     })
     .catch((err) => {
       showErrorMessage("Unable to update avatar. Please try again.");
+      submitButton.disabled = false;
     })
     .finally(() => {
       submitButton.textContent = originalText;
-      submitButton.disabled = false;
     });
 }
 
@@ -320,10 +333,10 @@ deleteForm.addEventListener("submit", (evt) => {
     })
     .catch((err) => {
       showErrorMessage("Unable to delete card. Please try again.");
+      submitButton.disabled = false;
     })
     .finally(() => {
       submitButton.textContent = originalText;
-      submitButton.disabled = false;
     });
 });
 
