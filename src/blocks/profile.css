@@ -145,8 +145,8 @@
     visibility: visible;
     width: 24px;
     height: 24px;
-    top: 52px;
-    left: 52px;
+    top: 72px;
+    left: 72px;
     gap: 8px;
     padding: 4px;
     border-radius: 6px;
@@ -154,6 +154,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    visibility: visible;
   }
 
   .profile__avatar-btn::after {

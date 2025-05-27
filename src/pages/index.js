@@ -333,10 +333,10 @@ deleteForm.addEventListener("submit", (evt) => {
     })
     .catch((err) => {
       showErrorMessage("Unable to delete card. Please try again.");
-      submitButton.disabled = false;
     })
     .finally(() => {
       submitButton.textContent = originalText;
+      submitButton.disabled = false;
     });
 });
 
